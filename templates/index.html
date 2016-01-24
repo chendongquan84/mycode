@@ -1,0 +1,36 @@
+$def with (newAndroidName,newIosName)
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<meta http-equiv="Content-Language" content="zh-CN" />
+	<style type="text/css">
+		body{text-align:center;}
+		div{width:778px;margin:0 auto;text-align:left;}
+	</style>
+</head>
+<body>
+<title>人人快递测试客户端下载</title> 
+<h1>人人快递测试客户端下载主页</h1>
+
+<h2>最新客户端</h2>
+<h3>new android</h3>
+$if newAndroidName:
+    <h4><a href="/static/apkFiles/new/android-test-2.4.1-8-0113151919.apk">$:newAndroidName 下载地址</a></h4>
+    <h4><img src="./static/img/android.png"><br/> $:newAndroidName </a></h4>
+$else:
+    <p><img src="./static/img/xiaolian.jpg"><br/>暂时没有找到相关apk包，请稍后重试 ...</p>
+    
+<br/>
+<h3>new ios</h3>
+$if newIosName:
+    <h4><a href="/static/apkFile/new/android-test-2.4.1-8-0113151919.apk">$:newIosName 下载地址</a></h4>
+    <h4><img src="./static/img/android.png"><br/> $:newIosName </a></h4>
+$else:
+    <p><img src="./static/img/xiaolian.jpg"><br/>暂时没有找到相关apk包，请稍后重试 ...</p>
+
+<h2>其他版本客户端安装包</h2>
+<p><a href="./android">Android其他版客户端 </a>  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;   <a href="./ios">Ios其他版客户端 </a></p>
+    
+    
+</body>
+

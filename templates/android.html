@@ -1,0 +1,17 @@
+$def with (androidVersion)
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<meta http-equiv="Content-Language" content="zh-CN" />
+	<style type="text/css">
+		body{text-align:center;}
+		div{width:778px;margin:0 auto;text-align:left;}
+	</style>
+</head>
+<body>
+<h2>android客户端下载主页</h2>
+$for version in androidVersion:
+        <p><a href="./android/ver/$version">android $:version </a></p>
+</body>
+
