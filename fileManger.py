@@ -7,14 +7,37 @@ Created on 2015年11月14日
 '''
 
 import os
-#import qrcode
+import qrcode
 import time
+import anydbm
+host = 'http://182.254.213.25:8081'
 import shutil 
 
+def makeQrcode(qrData,imgDir):
+    qr = qrcode.QRCode(     
+                       version=1,     
+                       error_correction=qrcode.constants.ERROR_CORRECT_L,     
+                       box_size=6,     
+                       border=1, 
+                       ) 
+    
+    qr.add_data(qrData)
+    qr.make(fit=True)
+    img = qr.make_image()
+    img.save(imgDir)
+    return
+
+def getVersionList(apkDir):
+    list = os.listdir(apkDir)
+    list.remove(list[-1])
+    list.sort()
+    list.reverse()
+    return list
 def getFileList(fileDir):
     try:
-        list = os.listdir(fileDir)
-        list.reverse()
+	list = os.listdir(fileDir)
+	list.sort()
+	list.reverse()
         return list
     except:
         return None
@@ -68,7 +91,7 @@ def copyIos(dir,path):
     print fileName
     if 'ipa' in fileName:
         shutil.copy2('/'.join([dir,fileName]), path)
-        print 'copy %s to %s ok at %s' % (fileName,path,time.strftime("%y%m%d%H%M%S", time.localtime()))
+        print 'copy %s to %s ok at %s' % (fileName,path,time.strftime("%y-%m-%d %H:%M:%S", time.localtime()))
     return
         
 
