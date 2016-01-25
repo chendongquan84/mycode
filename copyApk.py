@@ -10,7 +10,7 @@ import fileManger
 import shutil 
 #import time
 
-version = '2.4.1'
+version = '2.5.0'
 workerDir = '/data2/test/myWebTest'
 apkType = 'android-test'
 #apkType = 'android-simulation'

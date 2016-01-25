@@ -67,15 +67,13 @@ def copyIos(dir,path):
     fileName = getFileList(dir)[0]
     print fileName
     if 'ipa' in fileName:
-        print '/'.join([dir,fileName])
         shutil.copy2('/'.join([dir,fileName]), path)
-        print 'copy oki'
-    print 'tttt'
+        print 'copy %s to %s ok at %s' % (fileName,path,time.strftime("%y%m%d%H%M%S", time.localtime()))
     return
         
 
 if __name__ == '__main__':
-    copyIos('./files', './stati/file/iosFiles/new/')
+    copyIos('./files', './static/iosFiles/new/')
 
 
 

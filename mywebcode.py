@@ -19,7 +19,7 @@ imgDir_ = './static/img'
 backupApkDir = './static/apkFiles/backup'
 
 render = web.template.render('templates/')
-urls = ( '^/$','index','^/version(.+)','index1','^/backup$','backup')
+urls = ( '^/$','index','^/version(.+)','index1','^/backup$','backup','^/makeQR$','makeQR')
 
 
 class index:
@@ -51,6 +51,13 @@ class backup:
         backupApkList = fileManger.getFileList(backupApkDir)
 #        print backupApkList
         return render.backup(backupApkList,backupApkDir)
+
+class makeQR:
+    def GET(self):
+        qrData = web.input().data
+        imgDir = './static/img/tempimg.png'
+        fileManger.makeQrcode(qrData, imgDir)
+        return render.imgshow(qrData,imgDir)
     
 if __name__ == '__main__':
     test = index()
